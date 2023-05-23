@@ -7,6 +7,6 @@ excel_sheet_reader <- function(filename) {
   x
 }
 
-f <- "C:/Users/steve/Documents/GitHub/Extending-Excel-with-Python-and-R/ch1/iris_data.xlsx"
+f <- "ch1/iris_data.xlsx"
 
 excel_sheet_reader(f)

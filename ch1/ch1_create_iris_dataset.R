@@ -10,4 +10,4 @@ l <- df |>
 
 lt <- c(l, iris = list(df))
 
-write_xlsx(lt, path = "C:/Users/steve/OneDrive/Desktop/Extending_Excel/ch1/iris_data.xlsx")
+write_xlsx(lt, path = "ch1/iris_data.xlsx")
