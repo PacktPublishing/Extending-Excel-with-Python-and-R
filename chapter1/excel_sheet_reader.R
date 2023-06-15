@@ -13,4 +13,4 @@ read_excel_sheets <- function(filename, single_tbl = FALSE) {
 
 f <- "chapter1/iris_data.xlsx"
 
-read_excel_sheets(f, T)
+read_excel_sheets(f, F)
