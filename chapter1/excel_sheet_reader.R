@@ -1,12 +1,16 @@
-library(readxl)
-
-excel_sheet_reader <- function(filename) {
-  sheets <- excel_sheets(filename)
-  x <- lapply(sheets, function(X) read_excel(filename, sheet = X))
-  names(x) <- sheets
+read_excel_sheets <- function(filename, single_tbl = FALSE) {
+  sheets <- readxl::excel_sheets(filename)
+  
+  if (single_tbl){
+    x <- purrr::map_df(sheets, readxl::read_excel, path = filename)
+  } else {
+    x <- purrr::map(sheets, ~ readxl::read_excel(filename, sheet = .x))
+    purrr::set_names(x, sheets)
+  }
+  
   x
 }
 
-f <- "ch1/iris_data.xlsx"
+f <- "chapter1/iris_data.xlsx"
 
-excel_sheet_reader(f)
+read_excel_sheets(f, T)
