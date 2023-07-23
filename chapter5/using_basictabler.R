@@ -7,6 +7,10 @@ data <- data.frame(
   salary = c(100000, 50000)
 )
 
+# Plain table
+table_plain <- qhtbl(data, theme = "largeplain")
+table_plain
+
 # Create a basictabler object
 table <- qhtbl(data, 
   theme = "largeplain",
@@ -19,10 +23,6 @@ table <- qhtbl(data,
 
 # Render the table to HTML
 table
-
-# Plain table
-table_plain <- qhtbl(data, theme = "largeplain")
-table_plain
 
 # A longer example
 library(TidyDensity)
