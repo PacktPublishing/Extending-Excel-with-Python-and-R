@@ -14,4 +14,23 @@ table <- qhtbl(data,
 
 # Render the table to HTML
 table
-  
+
+# A longer example
+library(TidyDensity)
+tn <- tidy_normal(.n = 10)
+
+tbl <- BasicTable$new()
+# formatting values (explained in the introduction vignette)
+columnFormats=list(
+  NULL, 
+  NULL, 
+  "%.4f",
+  "%.4f",
+  "%.4f",
+  "%.4f",
+  "%.4f"
+)
+tbl$addData(tn, firstColumnAsRowHeaders=TRUE,
+            explicitColumnHeaders=c("Simulation","x","y","dx","dy","p","q"),
+            columnFormats = columnFormats)
+tbl$renderTable()
