@@ -9,11 +9,20 @@ data <- data.frame(
 
 # Create a basictabler object
 table <- qhtbl(data, 
-  theme = "largeplain"
+  theme = "largeplain",
+  tableStyle=list("border-color"="maroon"),
+  headingStyle=list("color"="cornsilk", "background-color"="maroon", 
+                    "font-style"="italic", "border-color"="maroon"), 
+  cellStyle=list("color"="maroon", "background-color"="cornsilk", 
+                 "border-color"="maroon")
 )
 
 # Render the table to HTML
 table
+
+# Plain table
+table_plain <- qhtbl(data, theme = "largeplain")
+table_plain
 
 # A longer example
 library(TidyDensity)
