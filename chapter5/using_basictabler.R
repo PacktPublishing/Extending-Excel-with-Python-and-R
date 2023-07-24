@@ -69,3 +69,23 @@ tbl$mapStyling(
 )
 
 tbl$renderTable()
+
+# Write styled table out to excel
+library(openxlsx)
+
+wb <- createWorkbook()
+addWorksheet(wb, "Data")
+
+tbl$writeToExcelWorksheet(
+  wb = wb, 
+  wsName = "Data",
+  topRowNumber = 1, 
+  leftMostColumnNumber = 1, 
+  applyStyles = TRUE
+  )
+
+saveWorkbook(
+  wb, 
+  file="chapter5/basictabler_excel.xlsx", 
+  overwrite = TRUE
+)
