@@ -73,19 +73,22 @@ tbl$renderTable()
 # Write styled table out to excel
 library(openxlsx)
 
+# Create Workbook
 wb <- createWorkbook()
+# Add a sheet called Data
 addWorksheet(wb, "Data")
-
+# Use basictabler to write the tbl to excel
 tbl$writeToExcelWorksheet(
   wb = wb, 
   wsName = "Data",
   topRowNumber = 1, 
   leftMostColumnNumber = 1, 
   applyStyles = TRUE
-  )
-
+)
+# Use openxlsx to save the file
 saveWorkbook(
   wb, 
   file="chapter5/basictabler_excel.xlsx", 
   overwrite = TRUE
 )
+
