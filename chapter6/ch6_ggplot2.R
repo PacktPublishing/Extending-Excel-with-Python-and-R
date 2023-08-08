@@ -24,3 +24,10 @@ iris |>
 ggplot(aes(x = Sepal.Width, fill = Species)) + 
   geom_histogram(alpha = 0.328) +
   theme_minimal()
+
+# Make a histogram of the sepal width for each species and facet them
+iris |>
+  ggplot(aes(x = Sepal.Width, fill = Species)) +
+  geom_histogram(alpha = 0.328) +
+  facet_wrap(~ Species, scales = "free") +
+  theme_minimal()
