@@ -17,8 +17,10 @@ df <- healthyR_data |>
 
   
 ggplot(df, aes(x = order_var, y = n)) +
-  geom_col() +
-  facet_wrap(~ ip_op_flag, scale = "free", drop = TRUE) +
+  geom_col(alpha = 0.328) +
+  labs(x = "", y = "") +
+  theme(legend.position = "none") +
+  facet_wrap(~ ip_op_flag, scale = "free") +
   scale_x_discrete(labels =  with(df, as.character(payer_grouping) |> 
                                     set_names(order_var))) +
   xlab(NULL) +
