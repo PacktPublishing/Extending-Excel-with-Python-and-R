@@ -34,3 +34,12 @@ tab <- tab |>
   )
 
 tab
+
+# pivot_table() with tidyquant
+library(tidyquant)
+library(purrr)
+
+pivot_table(.data = iris,
+            .rows = ~ Species,
+            .values = c(~ mean(Sepal.Length), ~ mean(Sepal.Width))) |>
+  set_names("Species","Mean_Sepal_Length","Mean_Sepal_Width")
