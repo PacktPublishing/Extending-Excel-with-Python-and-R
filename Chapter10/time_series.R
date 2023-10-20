@@ -42,3 +42,7 @@ plot(ap_ts)
 
 # Decomposition and Visualization
 plot(decompose(ap_ts))
+
+# P/ACF
+acf(ap_ts)
+acf(ap_ts, type = "partial")
