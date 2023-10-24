@@ -46,3 +46,41 @@ plot(decompose(ap_ts))
 # P/ACF
 acf(ap_ts)
 acf(ap_ts, type = "partial")
+
+# Auto Arima Modeling
+library(healthyR.ts)
+library(dplyr)
+library(timetk)
+library(modeltime)
+
+ap_tbl <- ts_to_tbl(ap_ts) |>
+  select(-index)
+
+class(ap_tbl)
+
+# Time Series Split
+splits <- time_series_split(
+  ap_tbl
+  , date_col
+  , assess = 12
+  , skip = 3
+  , cumulative = TRUE
+)
+
+splits
+
+ts_auto_arima <- ts_auto_arima(
+  .data = ap_tbl,
+  .num_cores = 10,
+  .date_col = date_col,
+  .value_col = x,
+  .rsamp_obj = splits,
+  .formula = x ~ .,
+  .grid_size = 20,
+  .cv_slice_limit = 5,
+  .tune = TRUE
+)
+
+# Brownian Motion
+ts_brownian_motion()
+  ts_brownian_motion_plot(t, y)
