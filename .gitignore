@@ -1,2 +1,4 @@
 .bookenv/*
+*.xlsx
+.Rproj.user
 *.png
