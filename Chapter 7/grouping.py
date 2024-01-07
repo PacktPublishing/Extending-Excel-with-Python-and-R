@@ -19,7 +19,7 @@ df.to_excel("GroupingExample.xlsx", sheet_name='Sheet1', index=False)
 # Connect to Excel
 excel = win32.gencache.EnsureDispatch('Excel.Application')
 
-# Create an Excel workbook and add a sheet
+# Open the Excel workbook and add a sheet
 wd = os.getcwd()
 workbook = excel.Workbooks.Open(os.path.join(wd, 'GroupingExample.xlsx'))  # Replace with your workbook path
 worksheet = workbook.Worksheets(1)
@@ -39,7 +39,7 @@ starting_row = 3
 # Create the Pivot Table on the new sheet using the Pivot Cache:
 pivot_table = pivot_cache.CreatePivotTable(TableDestination=pivot_table_sheet.Cells(starting_row, 1), TableName='MyPivotTable')
 
-# Add the 'Date' field to Rows
+# Add the 'Date' field to Rows and define the date_field variable as done with name_field in the example above.
 date_field = pivot_table.PivotFields('Date')
 date_field.Orientation = 1 # row field
 pivot_table.PivotFields('Sales').Orientation = 4 # data field

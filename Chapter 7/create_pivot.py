@@ -18,10 +18,14 @@ worksheet.Cells(3, 1).Value = 'Alice'
 worksheet.Cells(3, 2).Value = 'Clothing'
 worksheet.Cells(3, 3).Value = 800
 
+worksheet.Cells(4, 1).Value = 'John'
+worksheet.Cells(4, 2).Value = 'Clothing'
+worksheet.Cells(4, 3).Value = 300
+
 # Add more data as needed
 
 # Define the range of data to be used as input for the pivot table
-data_range = worksheet.Range('A1:C3')  # Adjust the range as needed
+data_range = worksheet.Range('A1:C4')  # Adjust the range as needed
 
 # Add a new worksheet to the workbook to hold the Pivot Table:
 pivot_table_sheet = workbook.Worksheets.Add()

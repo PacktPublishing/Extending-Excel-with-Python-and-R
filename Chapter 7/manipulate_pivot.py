@@ -7,6 +7,7 @@ excel = win32.gencache.EnsureDispatch('Excel.Application')
 workbook = excel.Workbooks.Open('PivotTableExample.xlsx')  # Replace with your workbook path
 worksheet = workbook.Worksheets(1)
 
+# Access the Pivot Table
 pivot_table = worksheet.PivotTables('MyPivotTable')  # Use the name of your pivot table
 
 # Filter by value (need to make the field a Page field instaed of a column field)
