@@ -1,42 +1,48 @@
-# Library Install
-install.packages('scattermore')
-
 # Library Load
 library(tidyverse)
 library(healthyverse)
 library(readxl)
-library(scattermore)
+
+# Source Functions
+source(paste0(getwd(),"/chapter1/excel_sheet_reader.R"))
 
 # Read data
 file_path <- paste0(getwd(), "/Chapter14/")
-diamonds <- read_excel(
-  path = paste0(file_path, "diamonds.xlsx"),
+
+df <- read_excel_sheets(
+  filename = paste0(file_path, "diamonds_split.xlsx"),
+  single_tbl = TRUE
 )
 
 # Visualize Data
-hist(diamonds$price)
-breaks <- tibble(x = diamonds$price) |>
+# Create optimal binning via the opt_bin() function from healthyR
+breaks <- tibble(x = df$price) |>
   opt_bin(x) |>
   pull(value)
-hist(diamonds$price, breaks = breaks)
 
-diamonds |>
-  ggplot(aes(x = carat, y = price, color = cut)) +
-  geom_point(alpha = 0.328) +
-  geom_scattermore() +
+par(mfrow = c(1, 2))
+hist(df$price, main = "Price Histogram - Default binning",
+     xlab = "Price", ylab = "Frequency")
+hist(df$price, breaks = breaks, main = "Price Histogram - Optimal binning",
+     xlab = "Price", ylab = "Frequency")
+par(mfrow = c(1, 1))
+
+df |>
+  ggplot(aes(x = carat, y = price, fill = cut)) +
+  geom_hex(bins = length(breaks), alpha = 1/5) +
   facet_wrap(~ clarity, scales = "free") +
   theme_minimal() +
   labs(
     x = "Carat",
     y = "Price",
     title = "Diamonds Data",
-    color = "Cut"
+    fill = "Cut"
   ) +
   hr_scale_color_colorblind()
 
-diamonds |>
+df |>
   ggplot(aes(x = carat, y = price, fill = cut)) +
-  geom_boxplot(alpha = 0.328) +
+  geom_boxplot(alpha = 1/5, outlier.color = "lightgrey") +
   facet_wrap(~ clarity, scales = "free") +
   theme_minimal() +
   labs(
@@ -47,7 +53,7 @@ diamonds |>
   ) +
   hr_scale_color_colorblind()
 
-diamonds |>
+df |>
   summarize(m = mean(price), .by = c(clarity, cut)) |> 
   ggplot(aes(x = clarity, y = m, group = cut, color = cut)) +
   geom_point() +
@@ -61,7 +67,7 @@ diamonds |>
   theme_minimal() +
   hr_scale_color_colorblind()
 
-diamonds |>
+df |>
   summarize(m = mean(price/carat), .by = c(cut, color, clarity)) |>
   ggplot(aes(x = color, y = m, group = clarity, color = clarity)) +
   geom_point() +
@@ -74,9 +80,11 @@ diamonds |>
   theme_minimal() +
   hr_scale_color_colorblind()
 
-diamonds |>
+df |>
   ggplot(aes(x = price)) +
   geom_histogram(breaks = breaks, fill = "lightblue",
                  color = "black") +
   theme_minimal() +
-  facet_wrap(~ cut, ncol = 2, scales = 'free')
+  facet_wrap(~ cut, ncol = 2, scales = 'free') +
+  labs(x = "Price", y = "Frequency", title = "Price Histogram by Cut")
+
