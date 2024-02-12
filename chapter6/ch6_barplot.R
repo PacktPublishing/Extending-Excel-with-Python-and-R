@@ -13,9 +13,13 @@ df <- healthyR_data |>
     , ip_op_flag
   ) |>
   group_by(ip_op_flag) |>
-  mutate(order_var = sprintf("%02i", as.integer(rank(n))))
+  mutate(order_var = paste0(
+    sprintf("%02i", as.integer(rank(n))),
+    " - ",
+    payer_grouping
+    )) |>
+  ungroup()
 
-  
 ggplot(df, aes(x = order_var, y = n)) +
   geom_col(alpha = 0.328) +
   labs(x = "", y = "") +
