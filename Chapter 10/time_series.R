@@ -29,10 +29,10 @@ library(readxl)
 library(writexl)
 
 # Write Out the AirPassengers dataset to Excel as a data.frame object
-write_xlsx(AirPassengers |> as.data.frame(), "./chapter10/airpassengers.xlsx")
+write_xlsx(AirPassengers |> as.data.frame(), "./Chapter 10/airpassengers.xlsx")
 
 # Read the airpassengers.xlsx file in and convert to a ts object starting at 1949
-ap_ts <- read_xlsx("./chapter10/airpassengers.xlsx") |>
+ap_ts <- read_xlsx("./Chapter 10/airpassengers.xlsx") |>
   ts(start = 1949, frequency = 12)
 
 class(ap_ts)
