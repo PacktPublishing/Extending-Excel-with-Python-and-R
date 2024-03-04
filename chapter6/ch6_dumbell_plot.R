@@ -17,7 +17,7 @@ dumbbell_plot <- ggplot(data, aes(x = Category, xend = Category,
                                   y = Initial, yend = Final)) +
   geom_segment(color = "gray50") +  # Lines connecting dots
   geom_point(color = "blue", size = 3) +  # Initial values
-  geom_point(aes(y = Final), color = "red", size = 3) +  # Final values
+  geom_point(aes(y = Final), color = "orange", size = 3) +  # Final values
   geom_point(aes(y = Midpoint), color = "green", size = 3) + # Midpoint Values
   geom_text(aes(label = Midpoint), 
             y = data$Midpoint, vjust = -.5, size = 3) +  # Midpoint labels
