@@ -2,7 +2,7 @@
 pkgs <- c("openxlsx", "xlsx", "readxl")
 lapply(pkgs, library, character.only = TRUE)
 
-f_path <- "ch1/iris_data.xlsx"
+f_path <- "Chapter1/iris_data.xlsx"
 
 # Use openxlsx
 openxlsx::read.xlsx(f_path) |> head(5)
