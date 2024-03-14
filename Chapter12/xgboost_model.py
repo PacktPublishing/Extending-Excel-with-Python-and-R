@@ -7,7 +7,7 @@ from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.metrics import mean_squared_error
 
 # Define the file path
-file_path = "./Chapter 14/diamonds.xlsx"
+file_path = "./Chapter12/diamonds.xlsx"
 
 # Load the dataset into a pandas DataFrame
 df = pd.read_excel(file_path)

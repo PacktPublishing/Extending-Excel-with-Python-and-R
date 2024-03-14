@@ -2,7 +2,7 @@ import pandas as pd
 from plotnine import ggplot, aes, geom_bin2d, facet_wrap, theme_minimal, labs, scale_fill_manual, geom_boxplot, geom_point, geom_line, geom_smooth, scale_color_manual, geom_histogram
 
 # Define the file path
-file_path = "./Chapter 12/diamonds.xlsx"
+file_path = "./Chapter12/diamonds.xlsx"
 
 # Load the dataset into a pandas DataFrame
 df = pd.read_excel(file_path)
