@@ -53,7 +53,7 @@ With the following software and hardware list you can run all code files present
   
 * Building Interactive Dashboards in Microsoft 365 Excel  [[Packt]](https://www.packtpub.com/product/building-interactive-dashboards-in-microsoft-365-excel/9781803237299) [[Amazon]](https://www.amazon.com/Building-Interactive-Dashboards-Microsoft-Excel/dp/1803237295/ref=sr_1_1?sr=8-1)
   
-## Get to Know the Author
+## Get to Know the Authors
 **Steven Sanderson** has been working in healthcare for almost 20 years with a focus in the last 12 years on analytics. Steve has spent those years working on dashboards, automations, and visualizations for clinical, finance and IT operations. Steven is also the author of the healthyverse suite of R packages which are in active development. Steven received his MPH from Stony Brook University School of Medicine Graduate Program in Public Health.
 
 **David Kun** is the co-founder of Functional Analytics, the company behind the ownR platform engineering solution for R, Python and other data science languages. He is a qualified Actuary with two MSc’s concentrated on Mathematics. He has been using R since his MSc thesis in 2006 and Python since 2018.
